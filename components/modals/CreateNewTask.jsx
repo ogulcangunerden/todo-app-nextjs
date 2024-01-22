@@ -33,7 +33,7 @@ const CreateNewTask = () => {
     <div>
       <div className="flex justify-center items-center text-center mt-4">
         <button
-          className="btn"
+          className="btn btn-success"
           onClick={() => document.getElementById("my_modal_2").showModal()}
         >
           Create New Task
@@ -45,19 +45,24 @@ const CreateNewTask = () => {
             Create new task
           </h2>
           <Input
+            type={"text"}
             title={"Title"}
             value={title}
             onChange={handleTitleChange}
             placeholder={"Type Here"}
           />
           <Input
+            type={"text"}
             title={"Summary"}
             value={summary}
             onChange={handleSummaryChange}
             placeholder={"Type Here"}
           />
           <div className="flex justify-end mt-auto">
-            <button onClick={handleCreateTask} className="btn">
+            <button
+              onClick={handleCreateTask}
+              className="btn btn-secondary btn-outline"
+            >
               Create Task
             </button>
           </div>
@@ -76,12 +81,16 @@ const CreateNewTask = () => {
         />
       </div>
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-10">
-        <button
-          onClick={handleClearAllTasks}
-          className="btn btn-outline btn-error"
-        >
-          Clear All Tasks
-        </button>
+        {titleArr.length > 0 ? (
+          <button
+            onClick={handleClearAllTasks}
+            className="btn btn-outline btn-error"
+          >
+            Clear All Tasks
+          </button>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );

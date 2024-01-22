@@ -1,3 +1,4 @@
+"use client";
 import Input from "./Input";
 import React, { useState } from "react";
 import { BiEdit } from "react-icons/bi";
@@ -48,12 +49,14 @@ const Tasks = ({ titleArr, summaryArr, setTitleArr, setSummaryArr }) => {
               {editIndex === index ? (
                 <>
                   <Input
+                    type={"text"}
                     title={"Title"}
                     value={editedTitle}
                     onChange={(e) => setEditedTitle(e.target.value)}
                     placeholder={"Type Here"}
                   />
                   <Input
+                    type={"text"}
                     title={"Summary"}
                     value={editedSummary}
                     onChange={(e) => setEditedSummary(e.target.value)}
